@@ -1,0 +1,18 @@
+.content {
+  background: url("../../assets/bg.jpg");
+}
+.header {
+  .toolbar-background {
+    background: transparent;
+  }
+  .bar-button {
+    color: white;
+  }
+  .toolbar-title {
+    color: white;
+    text-align: center;
+  }
+  ion-navbar.toolbar {
+    box-shadow: 0px 1px 4px 1px rgba(255,255,255,1);
+  }
+}
