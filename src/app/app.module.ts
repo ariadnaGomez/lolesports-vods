@@ -1,13 +1,16 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
+import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule } from 'ionic-angular';
 
 import { LolEsportsVodsApp } from './app.component';
 
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
 import { Keyboard } from '@ionic-native/keyboard';
+import { SplashScreen } from '@ionic-native/splash-screen';
+import { StatusBar } from '@ionic-native/status-bar';
+import { IonicStorageModule } from '@ionic/storage';
+
+import { StatesData } from './../providers/states-service';
 
 @NgModule({
   bootstrap: [IonicApp],
@@ -16,6 +19,9 @@ import { Keyboard } from '@ionic-native/keyboard';
   imports: [
     BrowserModule,
     HttpModule,
+    IonicStorageModule.forRoot({
+      name: '__lolesportsVods'
+    }),
     IonicModule.forRoot(LolEsportsVodsApp, {
       backButtonText: '',
       iconMode: 'ios',
@@ -24,6 +30,6 @@ import { Keyboard } from '@ionic-native/keyboard';
     }),
     IonicModule
   ],
-  providers: [StatusBar, Keyboard, SplashScreen]
+  providers: [StatusBar, Keyboard, SplashScreen, StatesData]
 })
 export class AppModule { }

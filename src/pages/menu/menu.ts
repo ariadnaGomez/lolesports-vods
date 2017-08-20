@@ -1,12 +1,12 @@
-import { IonicPage, Menu, NavController, Nav } from 'ionic-angular';
 import { Component, ViewChild } from '@angular/core';
 import { Storage } from '@ionic/storage';
+import { IonicPage, Menu, Nav } from 'ionic-angular';
 
-import * as states from './../../providers/states-service';
+import { ApiProvider } from './../../providers/api';
+import { StatesData } from './../../providers/states-service';
 
 @IonicPage({
-  name: 'menu',
-  segment: 'menu'
+  name: 'menu'
 })
 @Component({
   selector: 'page-menu',
@@ -16,14 +16,18 @@ export class MenuPage {
   @ViewChild('content') content: Nav;
   @ViewChild(Menu) menu: Menu;
   public pages = [];
-  public menuRoot: any = states.EU_LCS;
-  constructor(
-    public navCtrl: NavController
+  public menuRoot: any = this.statesData.getEuLcs();
+
+  playlists: any[] = [];
+  constructor(private storage: Storage,
+              private apiProvider: ApiProvider,
+              private statesData: StatesData
   ) {
   }
 
   ionViewWillEnter() {
     this.setMenu();
+    this.setPlaylists();
   }
 
   openPage(page) {
@@ -34,11 +38,19 @@ export class MenuPage {
     this.content.push(page.component);
   }
 
+  setPlaylists() {
+    this.storage.get('playlists').then((playlists) => {
+      if (playlists === null || playlists === undefined) {
+        this.apiProvider.getPlaylists();
+      }
+    });
+  }
+
   private setMenu() {
     this.pages = [
       {
         title: 'EU LCS',
-        component: states.EU_LCS
+        component: this.statesData.getEuLcs()
       }
     ];
   }
