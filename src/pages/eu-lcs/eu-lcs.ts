@@ -21,6 +21,9 @@ export class EuLcsPage {
   splitPlaylists = [];
   private allPlaylists = [];
   tournaments = [];
+  selectOptions = {
+    title: 'Select tournament'
+  };
   constructor(public storage: Storage,
               private navCtrl: NavController,
               private tournamentData: TournamentDataProvider,
@@ -40,7 +43,8 @@ export class EuLcsPage {
   }
 
   goToDetail(playlist) {
-    this.navCtrl.push(this.statesData.getEuLcsDetail(), {playlist});
+    this.navCtrl.push(this.statesData.getEuLcsDetail(),
+      {playlist, tournament: this.tournamentSelected});
   }
 
   selectTournament() {

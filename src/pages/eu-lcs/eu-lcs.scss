@@ -2,14 +2,40 @@ page-eu-lcs {
   img {
     display: block;
     margin: 0 auto;
-    padding-top: 20px;
+    padding: 20px 0;
+  }
+  .list > .item-block:first-child {
+    border-top: 0;
   }
   h1 {
+    background: #BA1E26;
+    padding: 10px;
+    border-radius: 9px;
     color: white;
+    font-size: 2rem;
   }
   .select {
-    color: white;
+    background: #BA1E26;
+    padding: 10px;
+    border-radius: 9px;
     max-width: 100%;
-    font-size: 20px;
+    font-weight: 500;
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 10px;
+    .select-icon {
+      .select-icon-inner {
+        border: 0;
+        color: white;
+        right: 20px;
+        left: auto;
+        top: 2px;
+        &:after {
+          font-size:20px;
+          content: "\f3d0";
+          font-family: $ionicons-font-family;
+        }
+      }
+    }
   }
 }

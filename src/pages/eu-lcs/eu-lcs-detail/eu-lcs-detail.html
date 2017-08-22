@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>EU LCS</ion-title>
+    <ion-title>{{playlistTitle}}</ion-title>
     <button ion-button menuToggle right>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -9,6 +9,18 @@
 </ion-header>
 <ion-content padding>
   <ion-list>
-    <ion-item *ngFor="let playlist of playlists">{{playlist.name}}</ion-item>
-  </ion-list>
+    <ion-item *ngFor="let videos of allVideos | gameNumber:'3'">
+        {{videos.snippet.title}}
+      </ion-item>
+    </ion-list>
+  <!-- <ion-list>
+    <ion-item class="brackets" *ngFor="let bracket of schedule">
+        <h1>{{bracket[0].bracketName}}</h1>
+      <ion-list>
+        <ion-item *ngFor="let match of bracket; let i = index;">
+          {{match.name}} -
+          {{match.scheduledTime | date:'short'}}</ion-item>
+        </ion-list>
+    </ion-item>
+  </ion-list> -->
 </ion-content>

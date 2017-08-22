@@ -4,4 +4,13 @@ page-eu-lcs-detail {
     margin: 0 auto;
     padding-top: 20px;
   }
+  .item {
+    &.brackets {
+      border: 0;
+    }
+    h1 {
+      font-size: 17px;
+    }
+
+  }
 }

@@ -11,8 +11,7 @@ export class TournamentDataProvider {
               private http: Http) {}
 
   getTournamentsData() {
-    const url = 'http://api.lolesports.com/api/v1/scheduleItems?leagueId=3';
-    return this.http.get(url)
+    return this.getLolEsportData()
       .map((items) => items.json())
       .map((items) => {
         console.log(items);
@@ -21,12 +20,25 @@ export class TournamentDataProvider {
         });
         this.formatTournaments(tournaments);
         console.log(tournaments);
-        const games = items.scheduleItems.filter((game) => {
-          return game.tournament === tournaments[0].id; });
-        games.sort(this.sortByGameDate);
-        console.log(games);
         return tournaments;
       });
+  }
+
+  getScheduleData(tournamentId) {
+    return this.getLolEsportData()
+      .map((items) => items.json())
+      .map((items) => {
+        const games = items.scheduleItems.filter((game) => {
+          return game.tournament === tournamentId; });
+        games.sort(this.sortByGameDate);
+        console.log(games);
+        return games;
+      });
+  }
+
+  private getLolEsportData() {
+    const url = 'http://api.lolesports.com/api/v1/scheduleItems?leagueId=3';
+    return this.http.get(url);
   }
 
   private formatTournaments(tournaments) {
