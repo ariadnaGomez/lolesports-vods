@@ -5,12 +5,46 @@ page-eu-lcs-detail {
     padding-top: 20px;
   }
   .item {
+    .bg {
+      opacity: 0.3;
+      background-repeat: no-repeat;
+      background-size: 100%;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      position: absolute;
+      z-index: -1;
+    }
+    .input-wrapper {
+      align-items: baseline;
+    }
+    overflow: initial;
+    white-space: initial;
+    min-height: 272px;
+    .label {
+      white-space: normal;
+    }
     &.brackets {
       border: 0;
     }
-    h1 {
-      font-size: 17px;
+    h2 {
+      font-size: 21px;
+      margin: 20px;
+      font-weight: 600;
     }
-
+    h3 {
+      margin: 20px;
+      font-size: 18px;
+      position: absolute;
+      right: 10px; 
+      bottom: 20px;
+    }
+  }
+  .footer {
+    background: white;
+    .button {
+      background: #BA1E26;
+    }
   }
 }

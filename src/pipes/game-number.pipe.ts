@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class GameNumber implements PipeTransform {
     transform(items: any[], filter): any {
-        if (!items || !items.length) {
+        if (!items || !items.length || !filter) {
             return items;
         }
         if (filter === '3') {

@@ -6,7 +6,8 @@ import { ApiProvider } from './../../providers/api';
 import { StatesData } from './../../providers/states-service';
 
 @IonicPage({
-  name: 'menu'
+  name: 'menu',
+  segment: 'menu'
 })
 @Component({
   selector: 'page-menu',

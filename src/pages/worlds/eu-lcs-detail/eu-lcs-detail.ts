@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
+import { Http, Response } from '@angular/http';
+import { Storage } from '@ionic/storage';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Observable } from 'rxjs/Rx';
 
 import { ApiProvider } from '../../../providers/api';
 import { TournamentDataProvider } from
@@ -7,8 +10,7 @@ import { TournamentDataProvider } from
 import { StatesData } from './../../../providers/states-service';
 
 @IonicPage({
-  name: 'eu-lcs-detail',
-  segment: 'eu-lcs-detail'
+  name: 'eu-lcs-detail'
 })
 @Component({
   selector: 'page-eu-lcs-detail',

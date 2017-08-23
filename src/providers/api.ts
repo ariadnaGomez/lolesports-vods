@@ -23,7 +23,17 @@ export class ApiProvider {
     const params = {
       playlistId: id
     };
-    return this.getApiVideos(params);
+    return this.getApiVideos(params)
+      .map((videos) => {
+        videos.items = videos.items.map((video) => {
+          const formatTitle = video.snippet.title.split(' | ');
+          video.gameTitle = formatTitle[0];
+          video.gameSplit = formatTitle[1];
+          video.gameSubtitle = formatTitle[2];
+          return video;
+        });
+        return videos;
+      });
   }
 
   private getPage(params?) {

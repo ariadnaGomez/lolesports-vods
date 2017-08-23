@@ -10,14 +10,14 @@ import { TournamentDataProvider } from
 import { StatesData } from './../../providers/states-service';
 
 @IonicPage({
-  name: 'eu-lcs',
-  segment: 'eu-lcs'
+  name: 'worlds',
+  segment: 'worlds'
 })
 @Component({
-  selector: 'page-eu-lcs',
-  templateUrl: 'eu-lcs.html'
+  selector: 'page-worlds',
+  templateUrl: 'worlds.html'
 })
-export class EuLcsPage {
+export class WorldsPage {
   tournamentSelected;
   playlists = [];
   splitPlaylists = [];

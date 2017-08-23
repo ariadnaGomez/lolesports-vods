@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar hideBackButton>
+    <ion-title>EU LCS</ion-title>
+    <button ion-button menuToggle right>
+      <ion-icon  name="menu"></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <img src="http://am-a.akamaihd.net/image/?f=https://lolstatic-a.akamaihd.net/esports-assets/production/league/eu-lcs-b29u5nim.png&resize=120:120" />
+  <ion-select [selectOptions]="selectOptions" [(ngModel)]="tournamentSelected" (ngModelChange)="selectTournament()">
+    <ion-option *ngFor="let tournament of tournaments" [value]="tournament">{{tournament.description}}</ion-option>
+  </ion-select>
+  <ion-list>
+    <ion-item *ngFor="let playlist of splitPlaylists" (click)="goToDetail(playlist)">{{playlist.snippet.title}}</ion-item>
+  </ion-list>
+  <h1>Others</h1>
+  <ion-list>
+    <ion-item *ngFor="let playlist of playlists | tournamentSplit:''" (click)="goToDetail(playlist)">{{playlist.snippet.title}}</ion-item>
+  </ion-list>
+
+</ion-content>

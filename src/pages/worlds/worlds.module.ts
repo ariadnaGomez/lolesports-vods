@@ -7,20 +7,19 @@ import { ApiProvider } from '../../providers/api';
 import { StatesData } from '../../providers/states-service';
 import { TournamentDataProvider }
   from '../../providers/tournament-data.provider';
-import { EuLcsPage } from './eu-lcs';
+import { WorldsPage } from './worlds';
 
 @NgModule({
   declarations: [
-    EuLcsPage,
+    WorldsPage,
     TournamentSplit
   ],
   imports: [
-    IonicPageModule.forChild(EuLcsPage)
+    IonicPageModule.forChild(WorldsPage)
   ],
   providers: [
     TournamentDataProvider,
-    StatesData,
-    InAppBrowser
+    StatesData
   ]
 })
 export class EuLcsPageModule {}

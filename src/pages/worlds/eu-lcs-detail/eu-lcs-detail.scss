@@ -1,0 +1,28 @@
+page-worlds-detail {
+  img {
+    display: block;
+    margin: 0 auto;
+    padding-top: 20px;
+  }
+  .item {
+    overflow: initial;
+    white-space: initial;
+    .label {
+      white-space: normal;
+    }
+    &.brackets {
+      border: 0;
+    }
+    h2 {
+      font-size: 17px;
+      color: #BA1E26;
+      font-weight: 600;
+    }
+  }
+  .footer {
+    background: white;
+    .button {
+      background: #BA1E26;
+    }
+  }
+}

@@ -9,12 +9,15 @@
 <ion-content padding>
   <ion-list>
     <ion-item *ngFor="let videos of allVideos | gameNumber:gameNumber">
-      <div class="bg"
-        [style.background-image]="'url(' + videos.snippet.thumbnails.high.url + ')'">
-      </div>
+      <ion-row>
+        <ion-col>
           <h2>{{videos.gameTitle}}</h2>
           <h3>{{videos.gameSplit}}</h3>
-          <!-- {{videos.snippet.publishedAt | date:'dd/MM/y'}} -->
+        </ion-col>
+        <ion-col col-4>
+          {{videos.snippet.publishedAt | date:'dd/MM/y'}}
+        </ion-col>
+      </ion-row>
         <!-- <h4>{{videos.gameSubtitle}}</h4> -->
       </ion-item>
     </ion-list>
